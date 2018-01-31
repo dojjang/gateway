@@ -8,17 +8,17 @@ import javax.servlet.http.HttpServletRequest
 class PreRequest extends ZuulFilter {
 
     @Override
-    public String filterType() {
+    String filterType() {
         return "pre";
     }
 
     @Override
-    public int filterOrder() {
+    int filterOrder() {
         return 1;
     }
 
     @Override
-    public boolean shouldFilter() {
+    boolean shouldFilter() {
         return true;
     }
 

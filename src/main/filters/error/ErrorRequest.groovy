@@ -5,22 +5,22 @@ import com.netflix.zuul.ZuulFilter
 class ErrorRequest extends ZuulFilter {
 
     @Override
-    public String filterType() {
+    String filterType() {
         return "error";
     }
 
     @Override
-    public int filterOrder() {
+    int filterOrder() {
         return 1;
     }
 
     @Override
-    public boolean shouldFilter() {
+    boolean shouldFilter() {
         return true;
     }
 
     @Override
-    public Object run() {
+    Object run() {
         System.out.println("Inside Route Filter2");
 
         return null;

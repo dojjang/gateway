@@ -3,31 +3,32 @@ package post
 import com.netflix.zuul.ZuulFilter
 import com.netflix.zuul.context.RequestContext
 
-import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
 
 class PostRequest extends ZuulFilter {
 
     @Override
-    public String filterType() {
+    String filterType() {
         return "post";
     }
 
     @Override
-    public int filterOrder() {
+    int filterOrder() {
         return 1;
     }
 
     @Override
-    public boolean shouldFilter() {
+    boolean shouldFilter() {
         return true;
     }
 
     @Override
-    public Object run() {
+    Object run() {
         RequestContext ctx = RequestContext.getCurrentContext();
-        HttpServletRequest request = ctx.getRequest();
+        HttpServletResponse response = ctx.getResponse();
 
-        System.out.println("Request Method22 : " + request.getMethod() + " Request URL22 : " + request.getRequestURL().toString());
+        System.out.println("response code is : " + response.getStatus());
+        //print ("response code is : " + RequestContext.currentContext().response().status());
         return null;
     }
 }
