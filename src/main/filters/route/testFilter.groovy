@@ -20,8 +20,9 @@ class testFilter extends ZuulFilter {
 
     @Override
     boolean shouldFilter() {
-        String path = RequestContext.getCurrentContext().getRequest().getRequestURI();
-        return "/microservice/".equals(path);
+//        String path = RequestContext.getCurrentContext().getRequest().getRequestURI();
+//        return "/microservice/".equals(path);
+        return true;
     }
 
     @Override
@@ -30,7 +31,7 @@ class testFilter extends ZuulFilter {
         HttpServletRequest request = ctx.getRequest();
         println "test"
 
-        URL reUrl = new URL("http://localhost:8086");
+        //URL reUrl = new URL("http://localhost:8086");
 
         println "test2"
         //ctx.setRouteHost(reUrl);
