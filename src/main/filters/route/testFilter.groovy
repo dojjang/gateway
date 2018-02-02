@@ -1,15 +1,16 @@
-package pre
+package route
 
 import com.netflix.zuul.ZuulFilter
 import com.netflix.zuul.context.RequestContext
 
 import javax.servlet.http.HttpServletRequest
 
-class PreRequest extends ZuulFilter {
+
+class testFilter extends ZuulFilter {
 
     @Override
     String filterType() {
-        return "pre";
+        return "route";
     }
 
     @Override
@@ -19,17 +20,22 @@ class PreRequest extends ZuulFilter {
 
     @Override
     boolean shouldFilter() {
-//        String path = RequestContext.getCurrentContext().getRequest().getRequestURI();
-//        return "/microservice/".equals(path);
-        return true;
+        String path = RequestContext.getCurrentContext().getRequest().getRequestURI();
+        return "/microservice/".equals(path);
     }
 
     @Override
     Object run() {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
+        println "test"
 
-        System.out.println("Request Method2 : " + request.getMethod() + " Request URL2 : " + request.getRequestURL().toString());
+        URL reUrl = new URL("http://localhost:8086");
+
+        println "test2"
+        //ctx.setRouteHost(reUrl);
+
+
         return null;
     }
 }

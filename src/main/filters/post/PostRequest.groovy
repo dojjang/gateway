@@ -28,7 +28,6 @@ class PostRequest extends ZuulFilter {
         HttpServletResponse response = ctx.getResponse();
 
         System.out.println("response code is : " + response.getStatus());
-        //print ("response code is : " + RequestContext.currentContext().response().status());
         return null;
     }
 }
